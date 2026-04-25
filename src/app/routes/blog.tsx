@@ -1,83 +1,85 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Calendar, ArrowRight, Clock  } from 'lucide-react'
+import { Calendar, ArrowRight, Clock, Mail, CheckCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SEO } from '@/components/shared/seo'
 import { cn } from '@/lib/utils'
 
 const posts = [
   {
-    title: 'How We Built a SaaS Platform That Processes 50K Daily Transactions',
-    excerpt: 'A deep dive into the architecture decisions, trade-offs, and lessons learned from building a high-scale inventory management platform.',
-    date: 'Apr 10, 2026',
+    title: 'Why Your MVP Will Cost ₦5M to Rewrite Next Year (And How to Avoid It)',
+    excerpt: 'Most startups build their MVP for speed, then spend millions rewriting it. Here\'s how to build it right the first time.',
+    date: 'Apr 24, 2026',
     author: 'Architech Team',
     category: 'Engineering',
-    readTime: '12 min',
-    slug: 'building-high-scale-saas-platform',
+    readTime: '8 min',
+    slug: 'mvp-rewrite-cost',
     featured: true,
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
   },
   {
-    title: 'The Complete Guide to Building an MVP in Nigeria',
-    excerpt: 'Everything you need to know about building and launching your first product in the Nigerian market.',
-    date: 'Apr 5, 2026',
-    author: 'Architech Team',
-    category: 'Startups',
-    readTime: '8 min',
-    slug: 'mvp-guide-nigeria',
-    featured: true,
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop',
-  },
-  {
-    title: 'Why We Chose TypeScript for All Our Projects',
-    excerpt: 'The reasoning behind our TypeScript-first approach and how it improves code quality and developer experience.',
-    date: 'Mar 28, 2026',
+    title: 'TypeScript Saved Our Client ₦15M in Bugs. Here\'s the Math.',
+    excerpt: 'A quantified case for type safety. How static typing prevented catastrophic production failures.',
+    date: 'Apr 22, 2026',
     author: 'Architech Team',
     category: 'Engineering',
     readTime: '6 min',
-    slug: 'why-typescript',
-    featured: false,
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop',
+    slug: 'typescript-saved-millions',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop',
   },
   {
-    title: 'Designing Brand Identities That Convert',
-    excerpt: 'How strategic brand design can increase conversion rates and build customer trust.',
-    date: 'Mar 20, 2026',
+    title: 'The SaaS Metrics That Actually Matter (And the Ones VCs Ignore)',
+    excerpt: 'MRR, churn, LTV, CAC — which metrics drive decisions and which are vanity numbers.',
+    date: 'Apr 20, 2026',
     author: 'Architech Team',
-    category: 'Design',
-    readTime: '5 min',
-    slug: 'brand-identities-that-convert',
-    featured: false,
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
-  },
-  {
-    title: 'From Junior to Senior: A Developer\'s Growth Path',
-    excerpt: 'Practical advice for Nigerian developers looking to level up their careers.',
-    date: 'Mar 15, 2026',
-    author: 'Architech Team',
-    category: 'Career',
+    category: 'Business',
     readTime: '10 min',
-    slug: 'developer-growth-path',
+    slug: 'saas-metrics-that-matter',
+    featured: false,
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
+  },
+  {
+    title: 'Multi-Tenant Architecture: 3 Patterns and When to Use Each',
+    excerpt: 'Database-per-tenant, shared database, or hybrid — which architecture fits your SaaS?',
+    date: 'Apr 18, 2026',
+    author: 'Architech Team',
+    category: 'Engineering',
+    readTime: '12 min',
+    slug: 'multi-tenant-architecture-patterns',
+    featured: false,
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop',
+  },
+  {
+    title: 'From Zero to Production: Our CI/CD Pipeline Explained',
+    excerpt: 'How we go from commit to deployment in under 10 minutes with automated testing and zero-downtime releases.',
+    date: 'Apr 15, 2026',
+    author: 'Architech Team',
+    category: 'Engineering',
+    readTime: '7 min',
+    slug: 'cicd-pipeline-explained',
     featured: false,
     image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=400&fit=crop',
   },
   {
-    title: 'Scaling APIs for African Internet Conditions',
-    excerpt: 'Optimization strategies for building APIs that perform well across varying internet conditions.',
-    date: 'Mar 8, 2026',
+    title: 'Rate Limiting, Caching, and Queues — The Trifecta of Scalable APIs',
+    excerpt: 'Three patterns that separate APIs that scale from those that crash at 1,000 users.',
+    date: 'Apr 12, 2026',
     author: 'Architech Team',
     category: 'Engineering',
-    readTime: '7 min',
-    slug: 'scaling-apis-africa',
+    readTime: '9 min',
+    slug: 'scalable-api-patterns',
     featured: false,
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop',
   },
 ]
 
-const categories = ['All', 'Engineering', 'Design', 'Startups', 'Career']
+const categories = ['All', 'Engineering', 'Business', 'Startups']
 
 export function BlogPage() {
   const [activeCategory, setActiveCategory] = useState('All')
+  const [email, setEmail] = useState('')
+  const [subscribed, setSubscribed] = useState(false)
 
   const filtered = activeCategory === 'All' 
     ? posts 
@@ -86,18 +88,29 @@ export function BlogPage() {
   const featuredPosts = filtered.filter(p => p.featured)
   const regularPosts = filtered.filter(p => !p.featured)
 
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (email) {
+      setSubscribed(true)
+      setEmail('')
+      setTimeout(() => setSubscribed(false), 3000)
+    }
+  }
+
   return (
     <>
-      <SEO title="Blog" description="Engineering insights, tutorials, and business stories." />
+      <SEO title="Blog" description="Engineering insights, architecture deep-dives, and SaaS business advice." />
 
       {/* Hero */}
       <section className="pt-32 pb-16 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sm font-medium text-primary mb-4">Engineering Insights</p>
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-            Insights & stories
+            Systems thinking,<br />
+            <span className="text-primary">written down</span>
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Engineering deep-dives, startup advice, and behind-the-scenes of our projects.
+            Deep dives into architecture, TypeScript, SaaS metrics, and lessons from building production systems.
           </p>
         </div>
       </section>
@@ -137,7 +150,6 @@ export function BlogPage() {
                   to={`/blog/${post.slug}`}
                   className="group relative rounded-2xl border border-border/50 bg-background overflow-hidden hover:border-primary/50 hover:shadow-xl transition-all duration-300"
                 >
-                  {/* Featured Image */}
                   <div className="h-52 overflow-hidden">
                     <img 
                       src={post.image} 
@@ -171,7 +183,6 @@ export function BlogPage() {
                 to={`/blog/${post.slug}`}
                 className="group rounded-xl border border-border/50 bg-background overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300"
               >
-                {/* Post Thumbnail */}
                 <div className="h-44 overflow-hidden">
                   <img 
                     src={post.image} 
@@ -192,7 +203,6 @@ export function BlogPage() {
             ))}
           </div>
 
-          {/* Empty State */}
           {filtered.length === 0 && (
             <div className="text-center py-16">
               <p className="text-muted-foreground">No posts found in this category.</p>
@@ -204,19 +214,39 @@ export function BlogPage() {
         </div>
       </section>
 
-      {/* Newsletter CTA */}
+      {/* Newsletter Signup */}
       <section className="py-16 bg-secondary/30">
         <div className="max-w-2xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold mb-4">Get engineering insights in your inbox</h2>
-          <p className="text-muted-foreground mb-6">Weekly deep-dives on building and scaling software.</p>
-          <div className="flex gap-2 max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="you@email.com" 
-              className="flex-1 h-12 rounded-lg border border-border bg-background px-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <Button>Subscribe</Button>
+          <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+            <Mail className="h-6 w-6 text-primary" />
           </div>
+          <h2 className="text-2xl font-bold mb-4">Get engineering insights in your inbox</h2>
+          <p className="text-muted-foreground mb-6">
+            Weekly deep-dives on architecture, TypeScript, and building scalable systems. No spam.
+          </p>
+          
+          {subscribed ? (
+            <div className="flex items-center justify-center gap-2 text-green-500 p-4 rounded-xl bg-green-500/10 border border-green-500/20">
+              <CheckCircle className="h-5 w-5" />
+              <span className="font-medium">You're subscribed! Check your inbox.</span>
+            </div>
+          ) : (
+            <form onSubmit={handleSubscribe} className="flex gap-2 max-w-md mx-auto">
+              <input 
+                type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@email.com" 
+                required
+                className="flex-1 h-12 rounded-lg border border-border bg-background px-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+              <Button type="submit" disabled={!email}>Subscribe</Button>
+            </form>
+          )}
+          
+          <p className="text-xs text-muted-foreground mt-4">
+            Join 500+ engineering leaders. Unsubscribe anytime.
+          </p>
         </div>
       </section>
     </>
