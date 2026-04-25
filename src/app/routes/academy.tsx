@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { GraduationCap, Clock, Users, CheckCircle, ArrowRight, BookOpen, Code2, Server, Palette, Star } from 'lucide-react'
+import { Clock, Users, CheckCircle, ArrowRight, BookOpen, Code2, Server, Palette, Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SEO } from '@/components/shared/seo'
 
@@ -90,35 +90,49 @@ export function AcademyPage() {
       <SEO title="Academy" description="Learn React, Node.js, Product Design, and SaaS from industry experts." />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-secondary/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-2 mb-4">
-              <GraduationCap className="h-6 w-6 text-primary" />
-              <span className="text-sm font-medium text-primary">Architech Academy</span>
-            </div>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              Learn to build<br />
-              <span className="text-primary">production-ready</span><br />
-              applications
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-              Practical courses designed by engineers who build for a living.
-              No fluff, just what you need to land your dream role.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Link to="/contact">
-                <Button size="xl" className="group">
-                  Enroll Now
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button variant="outline" size="xl">
-                  Download Curriculum
-                </Button>
-              </Link>
-            </div>
+      <section className="relative pt-32 pb-24 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&h=600&fit=crop"
+            alt=""
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sm font-medium text-primary mb-4">Architech Academy</p>
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            Learn from engineers<br />
+            <span className="text-primary">who build for a living</span>
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+            Practical courses on React, Node.js, and SaaS architecture. Taught by senior engineers
+            who've shipped production systems processing millions in transactions.
+          </p>
+          <div className="mt-6 flex items-center justify-center gap-6 text-sm text-muted-foreground">
+            <span>550+ students trained</span>
+            <span>•</span>
+            <span>4 courses</span>
+            <span>•</span>
+            <span>85% completion rate</span>
+            <span>•</span>
+            <span>40+ hiring partners</span>
+          </div>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/academy#courses">
+              <Button size="xl" className="group">
+                Browse Courses
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button variant="outline" size="xl">
+                Talk to an Instructor
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

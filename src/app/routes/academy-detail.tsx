@@ -33,6 +33,13 @@ const courses: Record<string, any> = {
   },
 }
 
+const handleDownloadCurriculum = () => {
+  const link = document.createElement('a')
+  link.href = '/architech-academy-curriculum.pdf'
+  link.download = 'Architech-Academy-Curriculum.pdf'
+  link.click()
+}
+
 export function AcademyDetailPage() {
   const { slug } = useParams<{ slug: string }>()
   const course = slug ? courses[slug] : null
@@ -129,7 +136,9 @@ export function AcademyDetailPage() {
                 <Link to="/contact">
                   <Button className="w-full mb-3">Enroll Now</Button>
                 </Link>
-                <Button variant="outline" className="w-full">Download Syllabus</Button>
+                <Button variant="outline" className="w-full" onClick={handleDownloadCurriculum}>
+                  Download Syllabus
+                </Button>
 
                 <div className="mt-6 space-y-3 text-sm">
                   <div className="flex justify-between">

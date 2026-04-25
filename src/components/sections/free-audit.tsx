@@ -76,6 +76,13 @@ function AuditCard({ children, index }: { children: React.ReactNode; index: numb
 }
 
 export function FreeAudit() {
+
+  const handleDownloadChecklist = () => {
+  const link = document.createElement('a')
+  link.href = '/saas-architecture-checklist.pdf'
+  link.download = 'saas-architecture-checklist.pdf'
+  link.click()
+}
   return (
     <section className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -132,8 +139,8 @@ export function FreeAudit() {
                       No cost. No commitment. Just honest engineering advice.
                     </p>
                     <Link to="/contact">
-                      <Button size="lg" className="w-full group">
-                        Get Your Free System Audit
+                      <Button size="lg" className="w-full group k">
+                        Get Free System Audit
                         <span className="block text-xs font-normal opacity-70 mt-0.5">
                           Delivered in 48 Hours
                         </span>
@@ -186,7 +193,8 @@ export function FreeAudit() {
           <p className="text-xs text-muted-foreground mb-4">
             Download our SaaS Architecture Checklist — 12 questions to ask before you build anything new.
           </p>
-          <button className="text-sm font-medium text-primary hover:underline">
+          <button onClick={handleDownloadChecklist}
+          className="text-sm font-medium text-primary hover:underline">
             Get the Checklist →
           </button>
         </div>

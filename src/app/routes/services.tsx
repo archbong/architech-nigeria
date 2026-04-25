@@ -1,4 +1,4 @@
-import { Code2, Palette, Lightbulb } from 'lucide-react'
+import { Code2, Palette, Lightbulb, Link } from 'lucide-react'
 import { SEO } from '@/components/shared/seo'
 import { ServicesHero } from '@/features/services/services-hero'
 import { ServiceNav } from '@/features/services/service-nav'
@@ -123,6 +123,36 @@ export function ServicesPage() {
       <SEO title="Services" description="Web development, product design, and consulting services." />
 
       <ServicesHero />
+      <section className="py-12 bg-secondary/30">
+  <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-2xl font-bold text-center mb-8">Which service fits your stage?</h2>
+    <div className="hidden md:grid md:grid-cols-4 gap-4">
+      <div className="p-4 rounded-xl bg-background border border-border/50">
+        <h3 className="font-semibold text-sm mb-2">Stage</h3>
+        <p className="text-xs text-muted-foreground">Idea / Pre-seed</p>
+        <p className="text-xs text-muted-foreground">Growing / Seed</p>
+        <p className="text-xs text-muted-foreground">Scaling / Series A+</p>
+      </div>
+      <div className="p-4 rounded-xl bg-background border border-border/50">
+        <h3 className="font-semibold text-sm mb-2">Development</h3>
+        <p className="text-xs text-green-500 font-medium">✓ Best fit</p>
+        <p className="text-xs text-green-500 font-medium">✓ Best fit</p>
+        <p className="text-xs text-muted-foreground">—</p>
+      </div>
+      <div className="p-4 rounded-xl bg-background border border-border/50">
+        <h3 className="font-semibold text-sm mb-2">Consulting</h3>
+        <p className="text-xs text-muted-foreground">—</p>
+        <p className="text-xs text-green-500 font-medium">✓ Best fit</p>
+        <p className="text-xs text-green-500 font-medium">✓ Best fit</p>
+      </div>
+    </div>
+    <div className="text-center mt-6">
+      <p className="text-sm text-muted-foreground">
+        Not sure which fits? <Link to="/contact" className="text-primary hover:underline">Book a free strategy call</Link> and we'll help you decide.
+      </p>
+    </div>
+  </div>
+</section>
       <ServiceNav services={services} />
 
       {/* Featured Service */}

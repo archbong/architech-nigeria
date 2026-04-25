@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Calendar, ArrowRight, Clock, Mail, CheckCircle } from 'lucide-react'
+import { Calendar, ArrowRight, Clock, CheckCircle, FileText } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SEO } from '@/components/shared/seo'
 import { cn } from '@/lib/utils'
@@ -74,15 +74,16 @@ const posts = [
   },
 ]
 
-const categories = ['All', 'Engineering', 'Business', 'Startups']
+const categories = ['All', 'Architecture', 'TypeScript', 'Backend', 'Business', 'Case Studies']
+
 
 export function BlogPage() {
   const [activeCategory, setActiveCategory] = useState('All')
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
 
-  const filtered = activeCategory === 'All' 
-    ? posts 
+  const filtered = activeCategory === 'All'
+    ? posts
     : posts.filter(p => p.category === activeCategory)
 
   const featuredPosts = filtered.filter(p => p.featured)
@@ -102,16 +103,34 @@ export function BlogPage() {
       <SEO title="Blog" description="Engineering insights, architecture deep-dives, and SaaS business advice." />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-secondary/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-primary mb-4">Engineering Insights</p>
+      <section className="relative pt-32 pb-24 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=1600&h=600&fit=crop"
+            alt=""
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sm font-medium text-primary mb-4">Engineering Blog</p>
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-            Systems thinking,<br />
-            <span className="text-primary">written down</span>
+            Architecture decisions,<br />
+            <span className="text-primary">explained</span>
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Deep dives into architecture, TypeScript, SaaS metrics, and lessons from building production systems.
+            Practical deep-dives on TypeScript, backend architecture, and SaaS engineering — written for developers and technical founders.
           </p>
+          <div className="mt-6 flex items-center justify-center gap-6 text-sm text-muted-foreground">
+            <span>New posts weekly</span>
+            <span>•</span>
+            <span>500+ subscribers</span>
+            <span>•</span>
+            <span>6 min average read</span>
+          </div>
         </div>
       </section>
 
@@ -140,7 +159,7 @@ export function BlogPage() {
       {/* Posts Grid */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Featured Posts */}
           {featuredPosts.length > 0 && (
             <div className="grid md:grid-cols-2 gap-6 mb-12">
@@ -151,8 +170,8 @@ export function BlogPage() {
                   className="group relative rounded-2xl border border-border/50 bg-background overflow-hidden hover:border-primary/50 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="h-52 overflow-hidden">
-                    <img 
-                      src={post.image} 
+                    <img
+                      src={post.image}
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
@@ -184,8 +203,8 @@ export function BlogPage() {
                 className="group rounded-xl border border-border/50 bg-background overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300"
               >
                 <div className="h-44 overflow-hidden">
-                  <img 
-                    src={post.image} 
+                  <img
+                    src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
@@ -218,34 +237,34 @@ export function BlogPage() {
       <section className="py-16 bg-secondary/30">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-            <Mail className="h-6 w-6 text-primary" />
+            <FileText className="h-6 w-6 text-primary" />
           </div>
-          <h2 className="text-2xl font-bold mb-4">Get engineering insights in your inbox</h2>
+          <h2 className="text-2xl font-bold mb-4">Free SaaS Architecture Checklist</h2>
           <p className="text-muted-foreground mb-6">
-            Weekly deep-dives on architecture, TypeScript, and building scalable systems. No spam.
+            12 questions to ask before you build anything new. Used by 500+ engineering leaders.
           </p>
-          
+
           {subscribed ? (
             <div className="flex items-center justify-center gap-2 text-green-500 p-4 rounded-xl bg-green-500/10 border border-green-500/20">
               <CheckCircle className="h-5 w-5" />
-              <span className="font-medium">You're subscribed! Check your inbox.</span>
+              <span className="font-medium">Checklist sent! Check your inbox.</span>
             </div>
           ) : (
             <form onSubmit={handleSubscribe} className="flex gap-2 max-w-md mx-auto">
-              <input 
-                type="email" 
+              <input
+                type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@email.com" 
+                placeholder="you@email.com"
                 required
                 className="flex-1 h-12 rounded-lg border border-border bg-background px-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               />
-              <Button type="submit" disabled={!email}>Subscribe</Button>
+              <Button type="submit" disabled={!email}>Get the Checklist</Button>
             </form>
           )}
-          
+
           <p className="text-xs text-muted-foreground mt-4">
-            Join 500+ engineering leaders. Unsubscribe anytime.
+            No spam. Unsubscribe anytime. Read our <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.
           </p>
         </div>
       </section>

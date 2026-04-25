@@ -12,11 +12,17 @@ const projects = [
     title: 'SaaS Inventory Platform',
     client: 'RetailTech Nigeria',
     category: 'SaaS',
+    industry: 'Retail',
     description: 'Complete inventory management SaaS with POS, analytics, multi-warehouse support, and team collaboration.',
+    ourRole: 'Full Architecture & Development',
     challenge: 'Managing inventory across 50+ retail locations with spreadsheets was causing stockouts and overstocking.',
     solution: 'Built a centralized SaaS platform with real-time tracking, automated reorder points, and multi-location support.',
-    results: ['40% reduction in stockouts', '60% faster inventory counts', '25% increase in sales'],
-    tags: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'Docker'],
+    results: [
+      'Stockouts reduced significantly within 3 months',
+      'Inventory counting went from days to hours',
+      'Sales improved due to better stock availability',
+    ],
+    tags: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Redis', 'AWS'],
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
     featured: true,
   },
@@ -24,10 +30,16 @@ const projects = [
     title: 'EdTech Learning Platform',
     client: 'SkillBridge Africa',
     category: 'EdTech',
+    industry: 'Education',
     description: 'Online learning platform with video courses, interactive assessments, progress tracking, and certificates.',
-    challenge: 'Traditional classroom training was expensive and couldn\'t scale across multiple African countries.',
-    solution: 'Designed and developed a scalable e-learning platform with offline support and mobile-first design.',
-    results: ['10,000+ students enrolled', '85% course completion rate', 'Present in 12 African countries'],
+    ourRole: 'Architecture & Backend Lead',
+    challenge: 'Traditional classroom training couldn\'t scale across multiple African countries with varying internet quality.',
+    solution: 'Scalable e-learning platform with offline support, mobile-first design, and progressive web app capabilities.',
+    results: [
+      '10,000+ students enrolled across 12 countries',
+      'High course completion rate due to offline access',
+      'Platform handles peak loads during enrollment periods',
+    ],
     tags: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Vercel'],
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=500&fit=crop',
     featured: true,
@@ -36,7 +48,9 @@ const projects = [
     title: 'FinTech Analytics Dashboard',
     client: 'PayFlow Solutions',
     category: 'FinTech',
+    industry: 'Financial Services',
     description: 'Real-time financial analytics dashboard with data visualization, reporting, and predictive insights.',
+    ourRole: 'Full Architecture & Development',
     challenge: 'Manual reporting was taking 3+ days to generate monthly financial summaries for stakeholders.',
     solution: 'Automated data pipeline with real-time dashboards, reducing reporting time to seconds.',
     results: ['99% reduction in reporting time', 'Real-time transaction monitoring', '50+ KPIs tracked'],
@@ -48,6 +62,7 @@ const projects = [
     title: 'E-commerce Rebrand',
     client: 'StyleHub Lagos',
     category: 'E-commerce',
+    industry: 'Retail',
     description: 'Complete brand redesign including logo, packaging, website, and social media presence.',
     challenge: 'Outdated brand identity was losing market share to newer, more modern competitors.',
     solution: 'Created a fresh, modern brand identity that resonates with Gen Z and millennial audiences.',
@@ -60,6 +75,7 @@ const projects = [
     title: 'Enterprise API Gateway',
     client: 'DataCore Systems',
     category: 'Enterprise',
+    industry: 'Technology',
     description: 'High-performance API gateway handling 10M+ requests daily with rate limiting and monitoring.',
     challenge: 'Legacy monolithic architecture couldn\'t handle growing API traffic from mobile apps.',
     solution: 'Migrated to microservices with a centralized API gateway, load balancing, and caching.',
@@ -72,6 +88,7 @@ const projects = [
     title: 'Healthcare Mobile App',
     client: 'MediConnect',
     category: 'SaaS',
+    industry: 'Healthcare',
     description: 'Telemedicine platform connecting patients with doctors via video consultations and prescriptions.',
     challenge: 'Limited healthcare access in rural areas with no nearby hospitals or specialists.',
     solution: 'Built a HIPAA-compliant telemedicine app with video calls, e-prescriptions, and appointment scheduling.',
@@ -81,6 +98,7 @@ const projects = [
     featured: false,
   },
 ]
+
 
 export function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState('All')
@@ -94,14 +112,33 @@ export function PortfolioPage() {
       <SEO title="Portfolio" description="Selected projects and case studies from our work." />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-secondary/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative pt-32 pb-24 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=600&fit=crop"
+            alt=""
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+         <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sm font-medium text-primary mb-4">Case Studies</p>
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-            Our work
+            Systems we've shipped
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real projects, real impact. Here's what we've built for our clients.
+            From fintech infrastructure to edtech platforms — here's what happens when engineering meets business problems.
           </p>
+          <div className="mt-6 flex items-center justify-center gap-6 text-sm text-muted-foreground">
+            <span>30+ clients</span>
+            <span>•</span>
+            <span>50+ projects</span>
+            <span>•</span>
+            <span>12+ industries</span>
+          </div>
         </div>
       </section>
 
