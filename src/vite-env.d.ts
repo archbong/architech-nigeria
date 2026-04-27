@@ -5,3 +5,7 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv
 }
+
+interface Window {
+  gtag?: (...args: any[]) => void
+}

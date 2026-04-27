@@ -34,27 +34,34 @@ export function ContactPage() {
     defaultValues: { name: '', email: '', projectType: undefined, description: '' },
   })
 
-  async function onSubmit(data: ContactFormValues) {
-    try {
-      const response = await fetch(import.meta.env.VITE_CONTACT_FORM_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          subject: `New ${data.projectType} inquiry from ${data.name}`,
-          description: data.description,
-        }),
-      })
+ async function onSubmit(data: ContactFormValues) {
+  try {
+    const response = await fetch(import.meta.env.VITE_CONTACT_FORM_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        subject: `New ${data.projectType} inquiry from ${data.name}`,
+        description: data.description,
+      }),
+    })
 
-      if (!response.ok) throw new Error('There was an error sending your message, please try again.')
-      setIsSubmitted(true)
-      toast.success(`Thanks ${data.name}! We'll get back to you within 4 business hours.`)
-      form.reset()
-    } catch {
-      toast.error('Failed to send. Please try again or WhatsApp us.')
-    }
+    if (!response.ok) throw new Error('There was an error sending your message, please try again.')
+    
+    // Track conversion AFTER successful submission
+    window.gtag?.('event', 'contact_form_submit', {
+      event_category: 'conversion',
+      event_label: data.projectType,
+    })
+    
+    setIsSubmitted(true)
+    toast.success(`Thanks ${data.name}! We'll get back to you within 4 business hours.`)
+    form.reset()
+  } catch {
+    toast.error('Failed to send. Please try again or WhatsApp us.')
   }
+}
 
   return (
     <>
