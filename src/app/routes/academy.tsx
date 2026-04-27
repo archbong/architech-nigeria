@@ -1,55 +1,103 @@
 import { Link } from 'react-router-dom'
-import { Clock, Users, CheckCircle, ArrowRight, BookOpen, Code2, Server, Palette, Star } from 'lucide-react'
+import { Clock, Users, CheckCircle, ArrowRight, BookOpen, Code2, Server, Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SEO } from '@/components/shared/seo'
 
 const courses = [
   {
-    title: 'React & Next.js Mastery',
-    description: 'Build production-ready web applications with React, Next.js, and TypeScript. From fundamentals to deployment.',
+    title: 'React Masterclass: From Zero to Production',
+    description: 'Engineer scalable, production-grade web applications using React, TypeScript, and modern frontend architecture. Covers everything from core fundamentals to deployment and performance optimization.',
     duration: '12 weeks',
     students: 150,
     level: 'Intermediate',
     icon: Code2,
     price: '₦150,000',
     image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop',
-    topics: ['React Hooks', 'Next.js App Router', 'Server Components', 'API Routes', 'Authentication', 'Deployment'],
+    topics: [
+      'Advanced React Hooks',
+      'Next.js App Router',
+      'Server & Client Components',
+      'API Integration Patterns',
+      'Authentication & Authorization',
+      'Performance Optimization',
+      'Deployment & CI/CD'
+    ],
     featured: true,
   },
   {
     title: 'Backend Engineering with Node.js',
-    description: 'Design and build scalable APIs, databases, and server infrastructure with Node.js and Express.',
+    description: 'Design and implement scalable backend systems using Node.js. Focus on API architecture, database design, and production-ready infrastructure.',
     duration: '10 weeks',
     students: 120,
     level: 'Intermediate',
     icon: Server,
     price: '₦120,000',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=500&fit=crop',
-    topics: ['REST APIs', 'Database Design', 'Authentication', 'File Upload', 'WebSockets', 'Docker'],
+    topics: [
+      'REST & API Architecture',
+      'Database Design (SQL & NoSQL)',
+      'Authentication & Security',
+      'File Handling & Storage',
+      'WebSockets & Realtime Systems',
+      'Docker & Deployment'
+    ],
     featured: true,
   },
   {
-    title: 'Product Design Fundamentals',
-    description: 'Learn UI/UX design principles, Figma, and how to create beautiful, functional interfaces.',
+    title: 'Python for Software Engineering',
+    description: 'Build a strong foundation in Python for backend development, automation, and system design. Designed for developers transitioning into backend engineering.',
     duration: '8 weeks',
     students: 80,
     level: 'Beginner',
-    icon: Palette,
-    price: '₦80,000',
+    icon: Code2,
+    price: '₦100,000',
     image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=500&fit=crop',
-    topics: ['Design Thinking', 'Figma', 'Wireframing', 'Prototyping', 'Design Systems', 'Portfolio'],
+    topics: [
+      'Python Fundamentals',
+      'Object-Oriented Programming',
+      'File Handling & Automation',
+      'Working with APIs',
+      'Error Handling & Testing',
+      'Intro to Backend Development'
+    ],
+    featured: false,
+  },
+  {
+    title: 'Django Web Development',
+    description: 'Develop robust, scalable web applications using Django and Django REST Framework. Focus on backend systems, APIs, and real-world application architecture.',
+    duration: '10 weeks',
+    students: 100,
+    level: 'Intermediate',
+    icon: Code2,
+    price: '₦200,000',
+    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=500&fit=crop',
+    topics: [
+      'Django Fundamentals',
+      'Django REST Framework',
+      'Authentication Systems',
+      'Database Modeling',
+      'API Development',
+      'Deployment & Scaling'
+    ],
     featured: false,
   },
   {
     title: 'SaaS Business Blueprint',
-    description: 'Learn how to build, launch, and grow a SaaS business from scratch. Technical and business strategies.',
+    description: 'A technical and strategic guide to building, launching, and scaling a SaaS product. Combines engineering decisions with business execution.',
     duration: '6 weeks',
     students: 200,
     level: 'All Levels',
     icon: BookOpen,
     price: '₦100,000',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=500&fit=crop',
-    topics: ['Idea Validation', 'MVP Development', 'Pricing Strategy', 'Marketing', 'Scaling', 'Fundraising'],
+    topics: [
+      'Idea Validation & Market Fit',
+      'MVP Architecture & Development',
+      'Pricing & Monetization Models',
+      'Go-To-Market Strategy',
+      'Scaling Infrastructure',
+      'Growth & Fundraising'
+    ],
     featured: false,
   },
 ]
@@ -87,7 +135,7 @@ const benefits = [
 export function AcademyPage() {
   return (
     <>
-      <SEO title="Academy" description="Learn React, Node.js, Product Design, and SaaS from industry experts." />
+      <SEO title="Academy" description="Learn React, Node.js, Python, Django, and SaaS from industry experts." />
 
       {/* Hero */}
       <section className="relative pt-32 pb-24 overflow-hidden">
@@ -113,13 +161,13 @@ export function AcademyPage() {
             who've shipped production systems processing millions in transactions.
           </p>
           <div className="mt-6 flex items-center justify-center gap-6 text-sm text-muted-foreground">
-            <span>550+ students trained</span>
+            <span>50+ students trained</span>
             <span>•</span>
             <span>4 courses</span>
             <span>•</span>
             <span>85% completion rate</span>
             <span>•</span>
-            <span>40+ hiring partners</span>
+            <span>10+ hiring partners</span>
           </div>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/academy#courses">

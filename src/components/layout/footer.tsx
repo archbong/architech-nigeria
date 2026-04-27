@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { Code2 } from 'lucide-react'
 
 const footerLinks = {
   services: {
@@ -45,12 +44,10 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center">
-                <Code2 className="h-5 w-5 text-white" />
-              </div>
-              <span className="font-bold">ArchitechNG</span>
-            </Link>
-            <p className="text-sm text-muted-foreground mb-4">
+            <img src="/transparent-logo.png" alt="Architech Nigeria" className="h-8 w-auto object-contain" />
+            <span className="text-lg font-bold text-chrome">Architech<span className="text-foreground">Nigeria</span></span>
+          </Link>
+                      <p className="text-sm text-muted-foreground mb-4">
               Building digital infrastructure for ambitious businesses.
             </p>
           </div>

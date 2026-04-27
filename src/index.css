@@ -1,40 +1,33 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
-  --color-background: #ffffff;
-  --color-foreground: #0a0a0a;
-  --color-primary: #7c3aed;
-  --color-primary-foreground: #ffffff;
-  --color-secondary: #f4f4f5;
-  --color-secondary-foreground: #0a0a0a;
-  --color-muted: #f4f4f5;
-  --color-muted-foreground: #71717a;
-  --color-accent: #f4f4f5;
-  --color-accent-foreground: #0a0a0a;
-  --color-border: #e4e4e7;
-  --color-ring: #7c3aed;
-  --color-destructive: #ef4444;
+  /* Base */
+  --color-background: #1A1A1E;
+  --color-surface: #2C2C32;
+  --color-foreground: #E2E2E8;
+  
+  /* Brand Tones */
+  --color-chrome: #B0B0BC;
+  --color-chrome-foreground: #1A1A1E;
+  --color-silver: #7A7A85;
+  --color-steel: #4A4A52;
+  
+  /* UI Colors */
+  --color-primary: #B0B0BC;
+  --color-primary-foreground: #1A1A1E;
+  --color-secondary: #2C2C32;
+  --color-secondary-foreground: #E2E2E8;
+  --color-muted: #2C2C32;
+  --color-muted-foreground: #7A7A85;
+  --color-border: #4A4A52;
+  --color-ring: #B0B0BC;
+  --color-destructive: #EF4444;
+  
+  /* Radius */
   --radius: 0.5rem;
   --font-sans: 'Inter', system-ui, sans-serif;
 }
 
-.dark {
-  --color-background: #0a0a0a;
-  --color-foreground: #fafafa;
-  --color-primary: #8b5cf6;
-  --color-primary-foreground: #ffffff;
-  --color-secondary: #1a1a1a;
-  --color-secondary-foreground: #fafafa;
-  --color-muted: #171717;
-  --color-muted-foreground: #a3a3a3;
-  --color-accent: #1a1a1a;
-  --color-accent-foreground: #fafafa;
-  --color-border: #262626;
-  --color-ring: #8b5cf6;
-  --color-destructive: #ef4444;
-}
 
 @layer base {
   * {
@@ -42,6 +35,7 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
   }
   html {
     scroll-behavior: smooth;

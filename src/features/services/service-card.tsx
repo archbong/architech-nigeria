@@ -45,7 +45,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link to={service.cta.href}>
-                <Button size="lg" variant={index === 0 ? 'default' : 'outline'} className="group">
+                <Button size="lg" variant={index === 0 ? 'primary' : 'outline'} className="group">
                   {service.cta.label}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>

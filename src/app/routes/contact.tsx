@@ -36,8 +36,18 @@ export function ContactPage() {
 
   async function onSubmit(data: ContactFormValues) {
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      const response = await fetch(import.meta.env.VITE_CONTACT_FORM_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          subject: `New ${data.projectType} inquiry from ${data.name}`,
+          description: data.description,
+        }),
+      })
+
+      if (!response.ok) throw new Error('There was an error sending your message, please try again.')
       setIsSubmitted(true)
       toast.success(`Thanks ${data.name}! We'll get back to you within 4 business hours.`)
       form.reset()

@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, ArrowRight, Code2 } from 'lucide-react'
+import { Menu, X, ArrowRight} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useScroll } from '@/hooks/use-scroll'
 import { cn } from '@/lib/utils'
-import { ThemeToggle } from '../shared/theme-toggle'
 
 const navigation = [
   { name: 'Services', href: '/services' },
@@ -34,12 +33,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center">
-              <Code2 className="h-5 w-5 text-white" />
-            </div>
-            <span className="font-bold text-lg tracking-tight">
-              Architech<span className="text-primary">Nigeria</span>
-            </span>
+              <img src="/archi-logo.png" alt="Architech Nigeria Logo" className="h-60 w-60 object-contain" />
           </Link>
 
           {/* Desktop Nav */}
@@ -62,7 +56,6 @@ export function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <ThemeToggle />
             <Link to="/contact">
               <Button size="sm" className="group">
                 Start a Project
@@ -91,7 +84,6 @@ export function Navbar() {
               </Link>
             ))}
             <div className="px-4 pt-3">
-              <ThemeToggle />
               <Link to="/contact" className="w-full">
                 <Button className="w-full group">
                   Start a Project
