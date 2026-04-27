@@ -40,6 +40,7 @@ export function ContactPage() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        access_key: import.meta.env.VITE_WEB3FORMS_KEY,
         name: data.name,
         email: data.email,
         subject: `New ${data.projectType} inquiry from ${data.name}`,
