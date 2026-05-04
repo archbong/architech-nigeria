@@ -35,9 +35,9 @@ const values = [
 
 const milestones = [
   { year: '2020', event: 'Architech Nigeria founded in Lagos with a mission to build digital infrastructure for African businesses.' },
-  { year: '2021', event: 'Delivered first 10 projects. Built MVP for a fintech startup that went on to raise $2M.' },
+  { year: '2021', event: 'Delivered first 10 projects. Built MVP for a retail startups that went on to raise ₦2M.' },
   { year: '2022', event: 'Expanded services to include Product Design & Branding. Grew team to 5 engineers.' },
-  { year: '2023', event: 'Launched Academy program. Trained 200+ developers. Built SaaS platform for retail giant.' },
+  { year: '2023', event: 'Launched Academy program. Trained 20+ developers. Built SaaS platform for retail giant.' },
   { year: '2024', event: 'Opened merch store. Reached 50+ projects. Clients across 12 countries.' },
 ]
 
@@ -56,7 +56,7 @@ export function AboutPage() {
               digital businesses
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
-              Architech Nigeria is a software engineering and design studio based in Lagos. 
+              Architech Nigeria is a software engineering and design studio based in Portharcourt. 
               We partner with ambitious businesses to build SaaS platforms, brand identities, 
               and digital products that drive real growth.
             </p>
@@ -95,8 +95,8 @@ export function AboutPage() {
                 context and global standards.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Today, we've delivered 50+ projects for clients across fintech, edtech, retail, 
-                and healthcare — from Lagos to London.
+                Today, we've delivered 10+ projects for clients across Saas, edtech, retail, 
+                and religion — from Portharcourt to Paris.
               </p>
             </div>
             <div className="space-y-4">
@@ -139,7 +139,7 @@ export function AboutPage() {
       <section className="py-24">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-          <h2 className="text-2xl font-bold mb-2">Based in Lagos, Nigeria</h2>
+          <h2 className="text-2xl font-bold mb-2">Based in Portharcourt, Nigeria</h2>
           <p className="text-muted-foreground mb-8">Serving clients worldwide</p>
           <Link to="/contact">
             <Button size="lg" className="group">

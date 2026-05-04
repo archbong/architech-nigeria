@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 const caseStudy = {
-  client: 'Clairesdelight',
-  industry: 'Retail Chain — 50+ Locations',
+  client: 'Johnson Rayssors Integrated services',
+  industry: 'Drinks Wholesale Distributions — 50+ Locations',
   problem: 'Each store tracked inventory in separate spreadsheets. Purchase orders were paper-based. Stockouts happened daily. The CEO couldn\'t answer: "How much inventory do we actually have?"',
   solution: 'We architected and built a centralized SaaS inventory platform with real-time tracking across all locations, automated reorder points, POS integration, and analytics dashboards.',
   techStack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Redis', 'AWS'],
@@ -20,8 +20,8 @@ const caseStudy = {
   ],
   testimonial: {
     quote: 'Architech didn\'t just build software — they transformed how we operate. We now manage inventory across 50 locations from a single dashboard. That\'s the power of good engineering.',
-    name: 'Adebayo Ogunlesi',
-    role: 'CEO, Clairesdelight',
+    name: 'Johnson Obidudu',
+    role: 'CEO, J.R.I.S',
   },
 }
 

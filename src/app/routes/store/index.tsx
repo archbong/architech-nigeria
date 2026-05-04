@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, RotateCcw, Truck } from 'lucide-react'
+import { ArrowRight, RotateCcw, Truck, ShieldCheck } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SEO } from '@/components/shared/seo'
 import { cn } from '@/lib/utils'
-
 
 const products = [
   {
@@ -74,6 +73,18 @@ const products = [
 
 const categories = ['All', 'T-Shirts', 'Hoodies', 'Accessories', 'Sweaters']
 
+const badgeStyles: Record<string, string> = {
+  'Best Seller': 'bg-amber-500 text-white',
+  'New':         'bg-emerald-500 text-white',
+  'Limited':     'bg-rose-500 text-white',
+}
+
+const perks = [
+  { icon: Truck,       label: 'Free shipping', sub: 'On orders over ₦50,000' },
+  { icon: RotateCcw,   label: '7-day returns', sub: 'No questions asked' },
+  { icon: ShieldCheck, label: 'Quality guaranteed', sub: 'Built to last' },
+]
+
 export function StorePage() {
   const [activeCategory, setActiveCategory] = useState('All')
 
@@ -85,9 +96,8 @@ export function StorePage() {
     <>
       <SEO title="Store" description="Premium tech apparel and accessories for builders." />
 
-      {/* Hero */}
-      <section className="relative pt-32 pb-24 overflow-hidden">
-        {/* Background Image */}
+      {/* ── HERO ── */}
+      <section className="relative pt-36 pb-28 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&h=600&fit=crop"
@@ -95,41 +105,70 @@ export function StorePage() {
             className="w-full h-full object-cover"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-background/82 backdrop-blur-[3px]" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-primary mb-4">Architech Store</p>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-            Built for builders
+        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <p className="text-xs font-bold tracking-widest uppercase text-primary mb-5">
+            Architech Store
+          </p>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] mb-5">
+            Built for{' '}
+            <span className="text-primary">builders</span>
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground max-w-lg mx-auto leading-relaxed mb-10">
             Premium tech apparel designed for people who ship code. Comfortable enough for all-night deploys,
             sharp enough for client meetings.
           </p>
-          <div className="mt-6 flex items-center justify-center gap-4 text-sm text-muted-foreground">
-            <span className="flex items-center gap-1">🚚 Free shipping over ₦50K</span>
-            <span>•</span>
-            <span className="flex items-center gap-1">🔄 7-day returns</span>
-            <span>•</span>
-            <span className="flex items-center gap-1">✅ Quality guaranteed</span>
+
+          {/* Perk pills */}
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {perks.map(({ icon: Icon, label }) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground bg-secondary/60 border border-border/40 backdrop-blur-sm px-4 py-2 rounded-full"
+              >
+                <Icon className="h-3.5 w-3.5 text-primary flex-shrink-0" />
+                {label}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="py-8 border-b border-border/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ── PERKS BAR ── */}
+      <section className="border-b border-border/50 bg-secondary/20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border/40">
+            {perks.map(({ icon: Icon, label, sub }) => (
+              <div key={label} className="flex items-center gap-3 px-6 py-4">
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Icon className="h-4 w-4 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold">{label}</p>
+                  <p className="text-[10px] text-muted-foreground">{sub}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CATEGORY FILTER ── */}
+      <section className="sticky top-0 z-30 py-4 border-b border-border/50 bg-background/95 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-2">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={cn(
-                  'px-4 py-2 rounded-lg text-sm font-medium transition-all',
+                  'px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all duration-150',
                   activeCategory === cat
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-secondary border border-transparent hover:border-border/50'
                 )}
               >
                 {cat}
@@ -139,65 +178,132 @@ export function StorePage() {
         </div>
       </section>
 
-      {/* Products Grid */}
+      {/* ── PRODUCT GRID ── */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+
+          {/* Results count */}
+          {activeCategory !== 'All' && (
+            <div className="flex items-center justify-between mb-8">
+              <p className="text-sm text-muted-foreground">
+                <span className="font-bold text-foreground">{filtered.length}</span>{' '}
+                {filtered.length === 1 ? 'item' : 'items'} in{' '}
+                <span className="text-primary font-semibold">{activeCategory}</span>
+              </p>
+              <button
+                onClick={() => setActiveCategory('All')}
+                className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Clear ×
+              </button>
+            </div>
+          )}
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {filtered.map((product) => (
               <Link
                 key={product.id}
                 to={`/store/${product.id}`}
-                className="group relative bg-background rounded-2xl border border-border/50 overflow-hidden hover:border-primary/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                className="group relative bg-background rounded-2xl border border-border/50 overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1 flex flex-col"
               >
-                <div className={cn('h-2 w-full bg-gradient-to-r', product.color)} />
-                <div className="p-6">
-                  {/* Product Image */}
-                  <div className="aspect-square rounded-xl mb-4 relative overflow-hidden bg-secondary/30">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    {product.badge && (
-                      <span className="absolute top-3 right-3 bg-primary text-primary-foreground text-xs font-bold px-3 py-1.5 rounded-full">
-                        {product.badge}
+                {/* Image */}
+                <div className="relative aspect-square overflow-hidden bg-secondary/30 flex-shrink-0">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                  />
+
+                  {/* Badge */}
+                  {product.badge && (
+                    <span className={cn(
+                      'absolute top-3 left-3 text-[10px] font-bold tracking-wide uppercase px-2.5 py-1 rounded-full',
+                      badgeStyles[product.badge] ?? 'bg-primary text-primary-foreground'
+                    )}>
+                      {product.badge}
+                    </span>
+                  )}
+
+                  {/* Out of stock overlay */}
+                  {!product.inStock && (
+                    <div className="absolute inset-0 bg-background/60 backdrop-blur-[1px] flex items-center justify-center">
+                      <span className="text-xs font-bold tracking-widest uppercase bg-background border border-border/60 text-muted-foreground px-3 py-1.5 rounded-full">
+                        Out of stock
                       </span>
-                    )}
-                  </div>
+                    </div>
+                  )}
+                </div>
 
-                  {/* Stock Status */}
-                  <div className="mb-2">
+                {/* Body */}
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <div>
+                      <p className="text-[10px] font-bold tracking-widest uppercase text-muted-foreground/50 mb-1">
+                        {product.category}
+                      </p>
+                      <h3 className="font-bold text-sm tracking-tight leading-snug group-hover:text-primary transition-colors">
+                        {product.name}
+                      </h3>
+                    </div>
                     {product.inStock ? (
-                      <span className="text-xs text-green-500 font-medium">In Stock</span>
-                    ) : (
-                      <span className="text-xs text-yellow-500 font-medium">Limited Stock</span>
-                    )}
+                      <span className="flex-shrink-0 text-[10px] font-bold text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full mt-1">
+                        In stock
+                      </span>
+                    ) : null}
                   </div>
 
-                  <p className="text-xs text-muted-foreground mb-1">{product.category}</p>
-                  <h3 className="font-bold mb-1 group-hover:text-primary transition-colors">{product.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{product.description}</p>
-                  <p className="text-lg font-bold text-primary mb-3">₦{product.price.toLocaleString()}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-4 line-clamp-2 flex-1">
+                    {product.description}
+                  </p>
 
-                  {/* Trust Badges */}
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground pt-3 border-t border-border/50">
-                    <span className="flex items-center gap-1"><Truck className="h-3 w-3" /> Free shipping over ₦50K</span>
-                    <span>•</span>
-                    <span className="flex items-center gap-1"><RotateCcw className="h-3 w-3" /> 7-day returns</span>
+                  {/* Footer */}
+                  <div className="flex items-center justify-between pt-4 border-t border-border/40 mt-auto">
+                    <p className="text-lg font-bold text-primary">
+                      ₦{product.price.toLocaleString()}
+                    </p>
+                    <span className="text-xs font-bold text-primary inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                      View <ArrowRight className="h-3 w-3" />
+                    </span>
                   </div>
                 </div>
               </Link>
             ))}
           </div>
 
+          {/* Empty state */}
+          {filtered.length === 0 && (
+            <div className="text-center py-28 flex flex-col items-center gap-4">
+              <div className="text-5xl">🛍️</div>
+              <p className="font-bold text-lg tracking-tight">Nothing here yet</p>
+              <p className="text-muted-foreground text-sm max-w-xs leading-relaxed">
+                We don't have anything in this category right now. Browse all products instead.
+              </p>
+              <button
+                onClick={() => setActiveCategory('All')}
+                className="mt-2 px-5 py-2.5 rounded-full border border-border/60 text-sm font-semibold text-foreground hover:bg-secondary transition-all"
+              >
+                View all products
+              </button>
+            </div>
+          )}
 
-          <div className="text-center mt-12">
-            <Button size="lg" variant="outline" className="group">
-              View All Products
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </div>
+          {/* View all CTA */}
+          {filtered.length > 0 && (
+            <div className="text-center mt-14">
+              <Link to={`${import.meta.env.VITE_STORE_URL}`}>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="group rounded-full px-8 h-12 text-sm font-semibold gap-2 border-border/60 hover:border-primary/40"
+                >
+                  View All Products
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+            </div>
+          )}
+
         </div>
       </section>
     </>

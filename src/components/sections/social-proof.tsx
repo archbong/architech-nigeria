@@ -3,33 +3,33 @@ import { Star, Quote, Building2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const clientLogos = [
-  'RetailTech', 'PayFlow', 'SkillBridge', 'StyleHub', 
-  'DataCore', 'MediConnect', 'FinEdge', 'EduBridge'
+  'Clairesdelight', 'EucalypsInsight', 'ArchitechStore', 'ArchitechAcademy', 'Archiluxe', 'J.R.I.S', 
+  'St Paul\s Anglican Church', 'EduBridge'
 ]
 
 const testimonials = [
   {
     quote: 'Architech didn\'t just build software — they transformed how we operate. We now manage inventory across 50 locations from a single dashboard. That\'s the power of good engineering.',
     name: 'Adebayo Ogunlesi',
-    role: 'CEO, RetailTech Nigeria',
+    role: 'CEO, Archiluxe',
     rating: 5,
   },
   {
     quote: 'The team understood our business before writing a single line of code. They delivered a platform that processes 10,000+ payments daily without breaking a sweat.',
     name: 'Chinelo Okonkwo',
-    role: 'CTO, PayFlow Solutions',
+    role: 'CTO, EucalypsInsight',
     rating: 5,
   },
   {
     quote: 'We needed an MVP in 3 weeks. Architech delivered in 2. The architecture was so clean that our investors\' technical due diligence passed without a single issue.',
     name: 'Tunde Bakare',
-    role: 'Founder, SkillBridge Africa',
+    role: 'Founder, ArchitechStore',
     rating: 5,
   },
   {
     quote: 'Their system audit saved us from a costly rewrite. They identified bottlenecks we didn\'t know existed and provided a clear roadmap to fix them.',
     name: 'Amara Eze',
-    role: 'VP Engineering, DataCore Systems',
+    role: 'VP Engineering, Architech Academy',
     rating: 5,
   },
 ]

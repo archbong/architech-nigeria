@@ -77,7 +77,7 @@ export function ContactPage() {
             </p>
             <div className="flex items-center justify-center gap-2 mt-3 text-sm text-muted-foreground">
               <Clock className="h-4 w-4" />
-              <span>We respond within 4 business hours</span>
+              <span>We respond within 1-2 business hours</span>
               <span className="mx-2">•</span>
               <MessageCircle className="h-4 w-4" />
               <span>Also available on WhatsApp</span>
@@ -108,9 +108,9 @@ export function ContactPage() {
                   <div>
                     <p className="font-semibold text-sm">Email</p>
                     <a href="mailto:archibong.samuel.chinonso@gmail.com" className="text-sm text-primary hover:underline">
-                      archibong.chinonso.samuel@gmail.com
+                      support@architech-nigeria.com
                     </a>
-                    <p className="text-xs text-muted-foreground mt-0.5">Response within 4 hours</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">Response within 1-2 hours</p>
                   </div>
                 </div>
               </div>

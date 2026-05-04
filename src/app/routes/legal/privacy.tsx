@@ -52,7 +52,7 @@ export function PrivacyPage() {
             <p>We use essential cookies for site functionality and analytics cookies to understand usage. See our Cookie Policy for details.</p>
 
             <h2>7. Contact</h2>
-            <p>Questions? Contact us at <a href="mailto:privacy@architech.ng">privacy@architech.ng</a>.</p>
+            <p>Questions? Contact us at <a href="mailto:support@architech-nigeria.com">support@architech-nigeria.com</a>.</p>
           </div>
         </div>
       </section>

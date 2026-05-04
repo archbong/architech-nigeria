@@ -20,18 +20,18 @@ const serviceOptions = {
     title: 'Web Application Development',
     sizes: [
       { value: 'mvp', label: 'MVP / Prototype', multiplier: 0.5 },
-      { value: 'standard', label: 'Standard Application', multiplier: 1 },
-      { value: 'enterprise', label: 'Enterprise Platform', multiplier: 2 },
+      { value: 'standard', label: 'Standard Application', multiplier: 1.8 },
+      { value: 'enterprise', label: 'Enterprise Platform', multiplier: 3 },
     ],
     complexities: [
-      { value: 'simple', label: 'Simple (CRUD, basic auth)', multiplier: 0.7 },
-      { value: 'moderate', label: 'Moderate (APIs, integrations)', multiplier: 1 },
-      { value: 'complex', label: 'Complex (Real-time, AI, multi-tenant)', multiplier: 1.5 },
+      { value: 'simple', label: 'Simple (CRUD, basic auth)', multiplier: 1.2 },
+      { value: 'moderate', label: 'Moderate (APIs, integrations)', multiplier: 2.1 },
+      { value: 'complex', label: 'Complex (Real-time, AI, multi-tenant)', multiplier: 3.1 },
     ],
     timelines: [
-      { value: '1-month', label: '1 Month (Rush)', multiplier: 1.3 },
+      { value: '1-month', label: '1 Month (Rush)', multiplier: 1.5 },
       { value: '3-months', label: '3 Months (Standard)', multiplier: 1 },
-      { value: '6-months', label: '6+ Months (Relaxed)', multiplier: 0.9 },
+      { value: '6-months', label: '6+ Months (Relaxed)', multiplier: 1.1 },
     ],
     features: [
       { id: 'auth', label: 'User Authentication', price: 200000 },

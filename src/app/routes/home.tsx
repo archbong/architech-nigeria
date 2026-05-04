@@ -9,10 +9,12 @@ import { FreeAudit } from '@/components/sections/free-audit'
 import { PreQualification } from '@/components/sections/pre-qualification'
 import { SocialProof } from '@/components/sections/social-proof'
 import { FounderAuthority } from '@/components/sections/founder-authority'
+import { SEO } from '@/components/shared/seo'
 
 export function HomePage() {
   return (
     <>
+    <SEO title="Architech-Nigeria" description="Trusted by 30+ businesses across Nigeria & beyond"/>
       <Hero />
       <ProblemSolution />
       <SolutionsSegments />

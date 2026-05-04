@@ -1,9 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft, Calendar, User, Clock, Share2 } from 'lucide-react'
+import { ArrowLeft, Calendar, User, Clock, Share2, BookOpen } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SEO } from '@/components/shared/seo'
-
-
 
 const blogContent: Record<string, any> = {
   'mvp-rewrite-cost': {
@@ -61,15 +59,27 @@ const blogContent: Record<string, any> = {
     content: 'Three patterns that separate APIs that scale from those that crash at 1,000 users...',
   },
 }
+
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>()
   const post = slug ? blogContent[slug] : null
 
+  // ── 404 ──
   if (!post) {
     return (
-      <section className="pt-32 pb-16 text-center">
-        <h1 className="text-2xl font-bold mb-4">Post not found</h1>
-        <Link to="/blog"><Button variant="outline">Back to Blog</Button></Link>
+      <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 gap-5">
+        <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center mb-2">
+          <BookOpen className="h-7 w-7 text-muted-foreground" />
+        </div>
+        <h1 className="text-2xl font-bold tracking-tight">Post not found</h1>
+        <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
+          This article may have been moved or doesn't exist. Head back to the blog.
+        </p>
+        <Link to="/blog">
+          <Button variant="outline" className="rounded-full px-5 text-sm font-semibold">
+            ← Back to Blog
+          </Button>
+        </Link>
       </section>
     )
   }
@@ -77,25 +87,106 @@ export function BlogPostPage() {
   return (
     <>
       <SEO title={post.title} />
-      <article className="pt-32 pb-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/blog" className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-8">
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
+
+      <article>
+
+        {/* ── HERO IMAGE ── */}
+        <div className="relative w-full h-72 sm:h-96 overflow-hidden">
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+        </div>
+
+        {/* ── ARTICLE BODY ── */}
+        <div className="max-w-2xl mx-auto px-6 lg:px-8 -mt-16 relative pb-24">
+
+          {/* Back link */}
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors mb-8 group"
+          >
+            <ArrowLeft className="h-3.5 w-3.5 group-hover:-translate-x-0.5 transition-transform" />
+            Back to Blog
           </Link>
 
-          <span className="bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full">{post.category}</span>
-          <h1 className="text-3xl font-bold mt-4 mb-4">{post.title}</h1>
-          
-          <div className="flex items-center gap-4 text-sm text-muted-foreground mb-8 pb-8 border-b border-border/50">
-            <span className="flex items-center gap-1"><User className="h-4 w-4" />{post.author}</span>
-            <span className="flex items-center gap-1"><Calendar className="h-4 w-4" />{post.date}</span>
-            <span className="flex items-center gap-1"><Clock className="h-4 w-4" />{post.readTime}</span>
-            <button className="flex items-center gap-1 hover:text-foreground"><Share2 className="h-4 w-4" />Share</button>
+          {/* Category badge */}
+          <div className="mb-4">
+            <span className="text-[10px] font-bold tracking-widest uppercase bg-primary/10 text-primary border border-primary/20 px-3 py-1.5 rounded-full">
+              {post.category}
+            </span>
           </div>
 
-          <div className="prose prose-invert max-w-none">
-            <p className="text-lg text-muted-foreground">{post.content}</p>
+          {/* Title */}
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.15] mb-6">
+            {post.title}
+          </h1>
+
+          {/* Meta bar */}
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground mb-8 pb-8 border-b border-border/40">
+            <span className="flex items-center gap-1.5 font-medium">
+              <User className="h-3.5 w-3.5" />
+              {post.author}
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Calendar className="h-3.5 w-3.5" />
+              {post.date}
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Clock className="h-3.5 w-3.5" />
+              {post.readTime} read
+            </span>
+            <button
+              onClick={() => navigator.share?.({ title: post.title, url: window.location.href })}
+              className="flex items-center gap-1.5 ml-auto hover:text-foreground transition-colors font-semibold"
+            >
+              <Share2 className="h-3.5 w-3.5" />
+              Share
+            </button>
           </div>
+
+          {/* Content */}
+          <div className="prose prose-invert max-w-none">
+            <p className="text-base text-muted-foreground leading-8">
+              {post.content}
+            </p>
+          </div>
+
+          {/* ── POST FOOTER ── */}
+          <div className="mt-16 pt-10 border-t border-border/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+            <div>
+              <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground/50 mb-1">
+                Written by
+              </p>
+              <p className="text-sm font-bold">{post.author}</p>
+              <p className="text-xs text-muted-foreground">Engineering & product at Architech Nigeria</p>
+            </div>
+            <Link to="/blog">
+              <Button variant="outline" className="rounded-full text-xs font-semibold px-5 gap-2">
+                <ArrowLeft className="h-3.5 w-3.5" />
+                All articles
+              </Button>
+            </Link>
+          </div>
+
+          {/* ── CTA NUDGE ── */}
+          <div className="mt-10 rounded-2xl border border-primary/20 bg-primary/5 px-7 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+            <div>
+              <p className="text-sm font-bold tracking-tight mb-1">Want us to build this for you?</p>
+              <p className="text-xs text-muted-foreground leading-relaxed max-w-xs">
+                We turn architecture ideas into production-ready systems. Let's talk.
+              </p>
+            </div>
+            <Link to="/contact" className="flex-shrink-0">
+              <Button className="rounded-full text-xs font-semibold px-5 h-9 shadow-sm shadow-primary/20">
+                Book a call →
+              </Button>
+            </Link>
+          </div>
+
         </div>
       </article>
     </>

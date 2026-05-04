@@ -4,26 +4,26 @@ import { Button } from '@/components/ui/button'
 import { SEO } from '@/components/shared/seo'
 
 const courses: Record<string, any> = {
-  'react-nextjs-mastery': {
-    title: 'React & Next.js Mastery',
+  'react-masterclass:-from-zero-to-production': {
+    title: 'React Masterclass: From Zero to Production',
     price: '₦150,000',
     duration: '12 weeks',
     students: 150,
-    level: 'Intermediate',
+    level: 'Beginner',
     image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=600&fit=crop',
-    description: 'Master modern web development with React, Next.js, and TypeScript. Build production-ready applications from scratch.',
+    description: 'Master modern web development with React and TypeScript. Build production-ready applications from scratch.',
     outcomes: [
-      'Build full-stack applications with Next.js',
+      'Build full-stack applications with React.js',
       'Implement authentication and authorization',
-      'Design and optimize databases',
-      'Deploy to production with CI/CD',
+      'Design and optimize function components',
+      'Deploy to production',
       'Write clean, maintainable TypeScript code',
     ],
     curriculum: [
       { week: 1, title: 'React Fundamentals', topics: ['Components', 'Props & State', 'Hooks', 'Events'] },
       { week: 2, title: 'TypeScript Deep Dive', topics: ['Types', 'Interfaces', 'Generics', 'Utility Types'] },
-      { week: 3, title: 'Next.js App Router', topics: ['Pages & Layouts', 'Server Components', 'Data Fetching'] },
-      { week: 4, title: 'API Development', topics: ['Route Handlers', 'Middleware', 'Validation'] },
+      { week: 3, title: 'React.js Browser Router', topics: ['Pages & Layouts', 'Server Components', 'Data Fetching'] },
+      { week: 4, title: 'Consuming API on client components', topics: ['Route Handlers', 'Middleware', 'Validation'] },
     ],
     instructor: {
       name: 'Architech Team',

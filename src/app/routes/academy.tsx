@@ -8,10 +8,30 @@ const courses = [
     title: 'React Masterclass: From Zero to Production',
     description: 'Engineer scalable, production-grade web applications using React, TypeScript, and modern frontend architecture. Covers everything from core fundamentals to deployment and performance optimization.',
     duration: '12 weeks',
-    students: 150,
-    level: 'Intermediate',
+    students: 15,
+    level: 'Beginner',
     icon: Code2,
     price: '₦150,000',
+    image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop',
+    topics: [
+      'Advanced React Hooks',
+      'BrowserRouter',
+      'Server & Client Components',
+      'API Integration Patterns',
+      'Authentication & Authorization',
+      'Performance Optimization',
+      'AI workflow'
+    ],
+    featured: true,
+  },
+  {
+    title: 'Next JS Web Framework',
+    description: 'Engineer scalable, production-grade web applications using React, TypeScript, and modern frontend architecture. Covers everything from core fundamentals to deployment and performance optimization.',
+    duration: '12 weeks',
+    students: 15,
+    level: 'Intermediate',
+    icon: Code2,
+    price: '₦200,000',
     image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop',
     topics: [
       'Advanced React Hooks',
@@ -20,7 +40,8 @@ const courses = [
       'API Integration Patterns',
       'Authentication & Authorization',
       'Performance Optimization',
-      'Deployment & CI/CD'
+      'Deployment & CI/CD',
+      'AI workflow'
     ],
     featured: true,
   },
@@ -28,10 +49,10 @@ const courses = [
     title: 'Backend Engineering with Node.js',
     description: 'Design and implement scalable backend systems using Node.js. Focus on API architecture, database design, and production-ready infrastructure.',
     duration: '10 weeks',
-    students: 120,
+    students: 12,
     level: 'Intermediate',
     icon: Server,
-    price: '₦120,000',
+    price: '₦200,000',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=500&fit=crop',
     topics: [
       'REST & API Architecture',
@@ -39,7 +60,8 @@ const courses = [
       'Authentication & Security',
       'File Handling & Storage',
       'WebSockets & Realtime Systems',
-      'Docker & Deployment'
+      'Docker & Deployment',
+      'AI workflow'
     ],
     featured: true,
   },
@@ -47,7 +69,7 @@ const courses = [
     title: 'Python for Software Engineering',
     description: 'Build a strong foundation in Python for backend development, automation, and system design. Designed for developers transitioning into backend engineering.',
     duration: '8 weeks',
-    students: 80,
+    students: 10,
     level: 'Beginner',
     icon: Code2,
     price: '₦100,000',
@@ -58,7 +80,8 @@ const courses = [
       'File Handling & Automation',
       'Working with APIs',
       'Error Handling & Testing',
-      'Intro to Backend Development'
+      'Intro to Backend Development',
+      'AI workflow'
     ],
     featured: false,
   },
@@ -77,7 +100,28 @@ const courses = [
       'Authentication Systems',
       'Database Modeling',
       'API Development',
-      'Deployment & Scaling'
+      'Deployment & Scaling',
+      'AI workflow'
+    ],
+    featured: false,
+  },
+  {
+    title: 'Mobile App Development with Flutter',
+    description: 'Develop robust, scalable web applications using Django and Django REST Framework. Focus on backend systems, APIs, and real-world application architecture.',
+    duration: '12 weeks',
+    students: 10,
+    level: 'Intermediate',
+    icon: Code2,
+    price: '₦250,000',
+    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=500&fit=crop',
+    topics: [
+      'Dart Fundamentals',
+      'Flutter Framework',
+      'Authentication Systems',
+      'Database Modeling',
+      'API Development',
+      'Deployment & Scaling',
+      'AI workflow'
     ],
     featured: false,
   },
@@ -85,7 +129,7 @@ const courses = [
     title: 'SaaS Business Blueprint',
     description: 'A technical and strategic guide to building, launching, and scaling a SaaS product. Combines engineering decisions with business execution.',
     duration: '6 weeks',
-    students: 200,
+    students: 20,
     level: 'All Levels',
     icon: BookOpen,
     price: '₦100,000',
@@ -96,7 +140,8 @@ const courses = [
       'Pricing & Monetization Models',
       'Go-To-Market Strategy',
       'Scaling Infrastructure',
-      'Growth & Fundraising'
+      'Growth & Fundraising',
+      'AI workflow'
     ],
     featured: false,
   },
@@ -161,16 +206,16 @@ export function AcademyPage() {
             who've shipped production systems processing millions in transactions.
           </p>
           <div className="mt-6 flex items-center justify-center gap-6 text-sm text-muted-foreground">
-            <span>50+ students trained</span>
+            <span>7+ students trained</span>
             <span>•</span>
-            <span>4 courses</span>
+            <span>6 courses</span>
             <span>•</span>
             <span>85% completion rate</span>
             <span>•</span>
-            <span>10+ hiring partners</span>
+            <span>1+ hiring partners</span>
           </div>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/academy#courses">
+            <Link to={`${import.meta.env.VITE_ACADEMY_URL}`}>
               <Button size="xl" className="group">
                 Browse Courses
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -190,10 +235,10 @@ export function AcademyPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             {[
-              { value: '550+', label: 'Students Trained' },
-              { value: '4', label: 'Courses' },
+              { value: '7+', label: 'Students Trained' },
+              { value: '6', label: 'Courses' },
               { value: '85%', label: 'Completion Rate' },
-              { value: '40+', label: 'Companies Hiring' },
+              { value: '20+', label: 'Companies Hiring' },
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="text-3xl font-bold text-primary">{stat.value}</p>
@@ -247,7 +292,7 @@ export function AcademyPage() {
 
                 <div className="flex items-center justify-between pt-4 border-t border-border/50">
                   <p className="text-lg font-bold text-primary">{course.price}</p>
-                  <Link to="/contact">
+                  <Link to={`${import.meta.env.VITE_ACADEMY_URL}`}>
                     <Button size="sm" className="group">
                       Enroll <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
                     </Button>
@@ -300,7 +345,7 @@ export function AcademyPage() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-4">Ready to level up?</h2>
           <p className="text-muted-foreground mb-8">Join 550+ students who have transformed their careers.</p>
-          <Link to="/contact">
+          <Link to={`${import.meta.env.VITE_ACADEMY_URL}`}>
             <Button size="lg" className="group">
               Start Learning Today
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

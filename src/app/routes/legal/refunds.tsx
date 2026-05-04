@@ -44,7 +44,7 @@ export function RefundsPage() {
             </ul>
 
             <h2>How to Request a Refund</h2>
-            <p>Email <a href="mailto:support@architech.ng">support@architech.ng</a> with your order/project details and reason for refund.</p>
+            <p>Email <a href="mailto:support@architech-nigeria.com">support@architech-nigeria.com</a> with your order/project details and reason for refund.</p>
           </div>
         </div>
       </section>

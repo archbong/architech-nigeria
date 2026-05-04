@@ -40,8 +40,8 @@ export function FounderAuthority() {
           
           <div className="max-w-2xl mx-auto text-muted-foreground leading-relaxed space-y-4 mb-8">
             <p>
-              Architech Nigeria was founded by a senior engineer who previously led development 
-              at a fintech company processing ₦100M+ monthly. We've experienced firsthand what 
+              Architech Nigeria was founded by a senior engineer who had experience with building a full network infrastructure and led development 
+              at multi-national companies processing ₦100M+ monthly. We've experienced firsthand what 
               happens when systems aren't built for scale — and what's possible when they are.
             </p>
             <p>
@@ -54,7 +54,7 @@ export function FounderAuthority() {
             <Briefcase className="h-5 w-5 text-primary mx-auto mb-3" />
             <p className="text-sm font-medium">
               When you work with us, you're not getting junior developers learning on your project. 
-              You're getting senior-level engineering judgment applied to your business.
+              You're getting senior-level and recommended industrial engineering judgment applied to your business.
             </p>
           </div>
         </div>

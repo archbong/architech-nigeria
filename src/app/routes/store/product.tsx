@@ -5,33 +5,6 @@ import { Button } from '@/components/ui/button'
 import { SEO } from '@/components/shared/seo'
 import { cn } from '@/lib/utils'
 
-// const products: Record<string, any> = {
-//   '1': {
-//     id: '1',
-//     name: 'Build Stuff Tee',
-//     price: 15000,
-//     description: 'Premium cotton t-shirt designed for builders. Comfortable enough for all-day coding sessions and stylish enough for meetups. Double-stitched seams for durability.',
-//     features: ['100% premium cotton', 'Double-stitched seams', 'Pre-shrunk fabric', 'Unisex fit'],
-//     sizes: ['S', 'M', 'L', 'XL', '2XL'],
-//     colors: ['Black', 'White', 'Navy'],
-//     images: [],
-//     category: 'T-Shirts',
-//     badge: 'Best Seller',
-//     color: 'from-purple-500 to-purple-600',
-//   },
-//   '2': {
-//     id: '2',
-//     name: 'Code. Sleep. Repeat. Hoodie',
-//     price: 25000,
-//     description: 'The ultimate coding hoodie. Soft fleece lining, adjustable hood, and a kangaroo pocket for your phone and snacks.',
-//     features: ['Fleece-lined', 'Adjustable hood', 'Kangaroo pocket', 'Ribbed cuffs'],
-//     sizes: ['S', 'M', 'L', 'XL'],
-//     colors: ['Black', 'Gray', 'Navy'],
-//     images: [],
-//     category: 'Hoodies',
-//     color: 'from-purple-500 to-purple-600',
-//   },
-// }
 
 const products: Record<string, any> = {
   '1': {
