@@ -49,7 +49,7 @@ export function TermsPage() {
             </ul>
 
             <h2>7. Contact</h2>
-            <p>Questions? Contact us at <a href="mailto:support@architech-nigeria.com">support@architech-nigeria.com</a>.</p>
+            <p>Questions? Contact us at <a href="mailto:legal@architech-nigeria.com">legal@architech-nigeria.com</a>.</p>
           </div>
         </div>
       </section>

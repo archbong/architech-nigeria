@@ -19,6 +19,11 @@ import { TermsPage } from './routes/legal/terms'
 import { CookiesPage } from './routes/legal/cookies'
 import { RefundsPage } from './routes/legal/refunds'
 import { NotFoundPage } from './routes/not-found'
+import { CompanyPolicyPage } from './routes/legal/company-policy'
+import { DPAPage } from './routes/legal/dpa'
+import { SLAPage } from './routes/legal/sla'
+import { AcceptableUsePage } from './routes/legal/acceptable-use'
+import { SecurityPage } from './routes/legal/security'
 
 export const router = createBrowserRouter([
   {
@@ -39,10 +44,15 @@ export const router = createBrowserRouter([
       { path: 'store/cart', element: <CartPage /> },
       { path: 'store/checkout', element: <CheckoutPage /> },
       { path: 'store/:id', element: <ProductPage /> },
+      { path: 'company-policy', element: <CompanyPolicyPage /> },
       { path: 'privacy', element: <PrivacyPage /> },
       { path: 'terms', element: <TermsPage /> },
       { path: 'cookies', element: <CookiesPage /> },
       { path: 'refunds', element: <RefundsPage /> },
+      { path: 'sla', element: <SLAPage /> },
+      { path: 'dpa', element: <DPAPage /> },
+      { path: 'acceptable-use', element: <AcceptableUsePage /> },
+      { path: 'security', element: <SecurityPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },

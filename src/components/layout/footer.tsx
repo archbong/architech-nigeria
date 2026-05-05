@@ -37,9 +37,14 @@ const footerLinks = {
   legal: {
     title: 'Legal',
     links: [
+      { name: 'Company Policy', href: '/company-policy' },
       { name: 'Privacy', href: '/privacy' },
       { name: 'Terms', href: '/terms' },
       { name: 'Cookies', href: '/cookies' },
+      { name: 'SLA', href: '/sla' },
+      { name: 'DPA', href: '/dpa' },
+      { name: 'Acceptable Use', href: '/acceptable-use' },
+      { name: 'Security', href: '/security' },
     ],
   },
 }

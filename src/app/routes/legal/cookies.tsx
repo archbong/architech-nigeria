@@ -36,7 +36,7 @@ export function CookiesPage() {
             <p>You can disable cookies in your browser settings. Note that some features may not work properly without cookies.</p>
 
             <h2>Contact</h2>
-            <p>Questions? Contact us at <a href="mailto:support@architech-nigeria.com">support@architech-nigeria.com</a>.</p>
+            <p>Questions? Contact us at <a href="mailto:legal@architech-nigeria.com">legal@architech-nigeria.com</a>.</p>
           </div>
         </div>
       </section>
