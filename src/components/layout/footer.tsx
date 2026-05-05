@@ -1,4 +1,8 @@
 import { Link } from 'react-router-dom'
+import Linkedln from '../socials/Linkedln'
+import Facebook from '../socials/Facebook'
+import Instagram from '../socials/Instagram'
+// import Twitter from '../socials/Twitter'
 
 const footerLinks = {
   services: {
@@ -106,13 +110,47 @@ export function Footer() {
         </div>
 
         {/* ── BOTTOM BAR ── */}
-        <div className="py-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-3">
+        {/* <div className="py-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground/60">
             © {new Date().getFullYear()} Architech Nigeria. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground/60 flex items-center gap-1">
             Built with <span className="text-rose-400">♥</span> in Nigeria
           </p>
+        </div> */}
+        <div className="py-6 border-t border-border/40 space-y-4">
+          {/* Social Icons */}
+          <div className="flex items-center justify-center gap-4">
+            {/* LinkedIn */}
+            <a href="https://linkedin.com/company/architech-nigeria" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/60 hover:text-chrome transition-colors" aria-label="LinkedIn">
+              <Linkedln />
+            </a>
+
+            {/* Facebook */}
+            <a href="https://facebook.com/architechnigeria" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/60 hover:text-chrome transition-colors" aria-label="Facebook">
+              <Facebook />
+            </a>
+
+            {/* Instagram */}
+            <a href="https://instagram.com/archietech7" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/60 hover:text-chrome transition-colors" aria-label="Instagram">
+              <Instagram />
+            </a>
+
+            {/* Twitter/X */}
+            {/* <a href="https://twitter.com/architechng" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/60 hover:text-chrome transition-colors" aria-label="Twitter">
+              <Twitter />
+            </a> */}
+          </div>
+
+          {/* Copyright */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p className="text-xs text-muted-foreground/60">
+              © {new Date().getFullYear()} Architech Nigeria. All rights reserved.
+            </p>
+            <p className="text-xs text-muted-foreground/60 flex items-center gap-1">
+              Built with <span className="text-rose-400">♥</span> in Nigeria
+            </p>
+          </div>
         </div>
       </div>
     </footer>
